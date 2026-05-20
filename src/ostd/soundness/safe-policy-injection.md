@@ -124,7 +124,7 @@ it cannot construct arbitrary slots pointing to sensitive memory.
 
 Beyond the three complex policies above,
 OSTD has simpler injection points
-for [logging](https://asterinas.github.io/api-docs/0.17.2/ostd/logger/fn.inject_logger.html),
+for [logging](https://asterinas.github.io/api-docs/0.17.2/ostd/log/fn.inject_logger.html),
 [power management](https://asterinas.github.io/api-docs/0.17.2/ostd/power/fn.inject_restart_handler.html),
 [scheduling hooks](https://asterinas.github.io/api-docs/0.17.2/ostd/task/fn.inject_pre_schedule_handler.html),
 [page fault handling](https://asterinas.github.io/api-docs/0.17.2/ostd/arch/trap/fn.inject_user_page_fault_handler.html),
