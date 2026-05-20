@@ -2,3 +2,8 @@
 title = "test"
 authors = ["zjp"]
 language = "en"
+
+[output.html]
+
+[output.linkcheck2]
+follow-web-links = true
