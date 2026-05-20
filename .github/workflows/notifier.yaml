@@ -24,7 +24,7 @@ jobs:
       id: lychee
       uses: lycheeverse/lychee-action@v2
       with:
-        fail: false
+        fail: true
         jobSummary: true
         args: --config linkcheck.toml src
 
