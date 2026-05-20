@@ -26,9 +26,7 @@ jobs:
       with:
         fail: false
         jobSummary: true
-        args: >-
-          --exclude '.*gnu.*' --verbose --no-progress
-          'src/**/*.md' 'src/**/*.html'
+        args: --config linkcheck.toml src
 
     - name: Create Issue From File
       if: steps.lychee.outputs.exit_code != 0

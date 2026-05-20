@@ -1,0 +1,14 @@
+# See https://lychee.cli.rs/guides/config/ for the meanings.
+
+# Verbose program output
+# Accepts log level: "error", "warn", "info", "debug", "trace"
+verbose = "info"
+
+# Output format
+format = "detailed"
+
+# Don't show interactive progress bar while checking links.
+no_progress = true
+
+# Proceed for server connections considered insecure (invalid TLS).
+insecure = true
