@@ -10,8 +10,12 @@ format = "detailed"
 # Don't show interactive progress bar while checking links.
 no_progress = true
 
-insecure = true # Proceed for server connections considered insecure (invalid TLS).
+# Proceed for server connections considered insecure (invalid TLS).
+insecure = true
 
+# Exclude URLs and mail addresses from checking. The values are treated as regular expressions
 exclude = [
-  "https://www.gnu.org/software/.*", # status code: 429 Too Many Requests
+  "https://www.gnu.org/software/.*",                                                               # 429 Too Many Requests
+  "https://dl.acm.org/doi/.*",                                                                     # 403 Forbidden
+  "https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html", # 403 Forbidden
 ]
