@@ -10,5 +10,8 @@ format = "detailed"
 # Don't show interactive progress bar while checking links.
 no_progress = true
 
-# Proceed for server connections considered insecure (invalid TLS).
-insecure = true
+insecure = true # Proceed for server connections considered insecure (invalid TLS).
+
+exclude = [
+  "https://www.gnu.org/software/.*", # status code: 429 Too Many Requests
+]
