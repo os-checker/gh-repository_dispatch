@@ -1,0 +1,17 @@
+name: Notiyfy deployment
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Notify Main Repo
+      uses: peter-evans/repository-dispatch@v2
+      with:
+        token: ${{ secrets.ACCESS_TOKEN }} # 需要一个具有代码仓库写入权限的 Personal Access Token
+        repository: os-checker/gh-repository_dispatch      # 代码仓库名
+        event-type: docs_deployed       # 自定义事件名称
+        client-payload: '{"version": "1"}' # 也可以传版本号过去

@@ -1,0 +1,16 @@
+name: Receive deployment
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [docs_deployed]
+
+jobs:
+  receive:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Receive
+      run: |
+        echo "deployment received"
+        echo version ${{ github.event.client_payload.version }}
+
