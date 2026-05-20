@@ -5,7 +5,30 @@ on:
   push:
 
 jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - uses: actions/checkout@v6
+    - uses: taiki-e/install-action@v2
+      with:
+        tool: mdbook,mdbook-mermaid
+    - run: mdbook build
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        # Upload entire repository
+        path: book
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v5
+
   notify:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
     - name: Notify Main Repo
