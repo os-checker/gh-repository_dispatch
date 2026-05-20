@@ -8,13 +8,33 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
+      # deployment permission
       pages: write
       id-token: write
+      # issue creation permission
+      issues: write
+      contents: read
     steps:
     - uses: actions/checkout@v6
     - uses: taiki-e/install-action@v2
       with:
-        tool: mdbook,mdbook-mermaid,mdbook-linkcheck2
+        tool: mdbook,mdbook-mermaid
+
+    - name: Link Checker
+      id: lychee
+      uses: lycheeverse/lychee-action@v2
+      with:
+        fail: false
+        workingDirectory: src
+
+    - name: Create Issue From File
+      if: steps.lychee.outputs.exit_code != 0
+      uses: peter-evans/create-issue-from-file@v5
+      with:
+        title: Link Checker Report
+        content-filepath: src/lychee/out.md
+        labels: report, automated issue
+
     - run: mdbook build
     - name: Setup Pages
       uses: actions/configure-pages@v5
