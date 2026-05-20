@@ -68,6 +68,5 @@ jobs:
     - name: Notify Main Repo
       uses: peter-evans/repository-dispatch@v2
       with:
-        repository: os-checker/gh-repository_dispatch      # 代码仓库名
         event-type: docs_deployed       # 自定义事件名称
         client-payload: '{"version": "1"}' # 也可以传版本号过去
